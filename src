@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int R, C;
+
+    printf("Podaj wielkosc macierzy: ");
+    if (scanf("%d %d", &R, &C) != 2 || R < 1 || C < 1) {
+        printf("Blad danych wejsciowych\n");
+        return 1;
+    }
+
+    int matrix[R][C];
+
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            if (scanf("%d", &matrix[i][j]) != 1) {
+                printf("Blad danych wejsciowych\n");
+                return 1;
+            }
+        }
+    }
+
+    for (int j = 0; j < C; j++) {
+        for (int i = 0; i < R; i++) {
+            printf("%d", matrix[i][j]);
+            if (i < R - 1) printf(" ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
